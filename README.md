@@ -4,6 +4,8 @@ En aquesta pràctica es crea un servidor ldap amb la configuració de edt.org pe
 
 Per la creació dels certificats he utilitzat les següents ordres:
 
+*Creació de la clau privada del CA i el seu certificat*
+
 ```bash
 [isx48172244@localhost ca]$  openssl genrsa -out ca-key.pem 1024
 Generating RSA private key, 1024 bit long modulus
@@ -31,7 +33,9 @@ Common Name (eg, your name or your server's hostname) []:Veritat Absoluta
 Email Address []:admin@edt.org
 
 ```
-    
+
+*Creació de la clau privada del servidor i el seu certificat no signat*
+
 ```bash
 [isx48172244@localhost ca]$ openssl genrsa -out server-key.pem 1024
 Generating RSA private key, 1024 bit long modulus
@@ -64,6 +68,9 @@ A challenge password []:recuperacio
 An optional company name []:edt
 ```
 
+*Signació del certificat del servidor com a entitat del CA*
+
+
 ```bash
 [isx48172244@localhost ca]$ openssl x509 -CA ca-crt.pem -CAkey ca-key.pem -req -in server-csr.pem -days 365 -sha1 -extfile ca.conf -CAcreateserial -out server-crt.pem
 Signature ok
@@ -72,5 +79,5 @@ Getting CA Private Key
 
 ```
 
-Els canvis fets als fitxers de configuració de ldap per permetre les connexiosn segures les he agafades dels apunts del professor. Per veure els canvis, has de comparar els fitxers amb altres versions del servidor ldap.
+Els canvis fets als fitxers de configuració de ldap per permetre les connexions segures les he agafades dels apunts del professor. Per veure els canvis, s'ha de comparar els fitxers amb altres versions del servidor ldap.
 
