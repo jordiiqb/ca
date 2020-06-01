@@ -2,6 +2,10 @@
 
 En aquesta pràctica es crea un servidor ldap amb la configuració de edt.org però utilitzant la configuració de certificats per a crear una connexió segura.
 
+Enllaç al dcokerhub: https://hub.docker.com/repository/docker/jordiiqb/ldapserver
+
+> docker run --rm --name ldap.edt.org -h ldap.edt.org -p 389:389 -p 636:636 -d jordiiqb/ldapserver:ca
+
 Per la creació dels certificats he utilitzat les següents ordres:
 
 *Creació de la clau privada del CA i el seu certificat*
