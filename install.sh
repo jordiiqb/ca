@@ -5,12 +5,12 @@ rm -rf /etc/openldap/slapd.d/*
 rm -rf /var/lib/ldap/*
 
 cp /opt/docker/ca.conf /etc/openldap/certs/.
-cp /opt/docker/ca.crt /etc/openldap/certs/.
-cp /opt/docker/ca.key /etc/openldap/certs/.
-cp /opt/docker/ca.srl /etc/openldap/certs/.
-cp /opt/docker/server.crt /etc/openldap/certs/.
-cp /opt/docker/server.csr /etc/openldap/certs/.
-cp /opt/docker/server.key /etc/openldap/certs/.
+cp /opt/docker/ca-crt.pem /etc/openldap/certs/.
+cp /opt/docker/ca-key.pem /etc/openldap/certs/.
+cp /opt/docker/ca-crt.srl /etc/openldap/certs/.
+cp /opt/docker/server-crt.pem /etc/openldap/certs/.
+cp /opt/docker/server-csr.pem /etc/openldap/certs/.
+cp /opt/docker/server-key.pem /etc/openldap/certs/.
 
 cp /opt/docker/DB_CONFIG /var/lib/ldap
 slaptest -f /opt/docker/slapd.conf -F /etc/openldap/slapd.d/
